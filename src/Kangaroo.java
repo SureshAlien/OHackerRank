@@ -3,7 +3,7 @@ public class Kangaroo {
 
 	public static void main(String[] args) 
 	{
-		int k_one_start = 0,k_two_start = 3,k_one_jump_distance = 4,k_two_jump_distance =2;
+		int k_one_start = 42,k_two_start = 94,k_one_jump_distance = 3,k_two_jump_distance =2;
 		
 		int kone_jump_count = 0;
 		int ktwo_jump_count = 0;
@@ -13,24 +13,9 @@ public class Kangaroo {
 		boolean check = false;
 		
 		//limit calculation
-		if (k_one_start == 0 || k_one_start == 1 )
-		{
-			k_one_limit = ( k_one_start + 2 ) * (k_one_jump_distance +2);	
-		}
-		else
-		{
-			k_one_limit = k_one_start *k_one_jump_distance  ;
-			
-		}
-		if( k_two_start == 0 || k_two_start == 1   )
-		{
-			k_two_limit = ( k_two_start + 2 ) * (k_two_jump_distance +2);		
-		}
-		else
-		{
-			k_two_limit = k_two_start * k_two_jump_distance;
-			
-		}
+		k_one_limit = ( k_one_start + 10) * (k_one_jump_distance +10);	
+		k_two_limit = ( k_two_start + 10 ) * (k_two_jump_distance +10);		
+
 
 		
 		System.out.println("********************************************* limit lculation" );
@@ -41,14 +26,15 @@ public class Kangaroo {
 		
 		//limit calculation
 		
-		for(long i=k_one_start, j= k_two_start ; i<= k_one_limit &&  j<= k_one_limit; i = i+k_one_jump_distance,j = j + k_two_jump_distance )
+		for(long i=k_one_start, j= k_two_start ; i<= k_one_limit ||  j<= k_two_limit; i = i+k_one_jump_distance,j = j + k_two_jump_distance )
 		{ 
 			kone_jump_count ++; ktwo_jump_count ++ ;
+
 			
 			if ( loop_count != 0)
 			{
 				if( kone_jump_count == ktwo_jump_count && i == j ) {
-					System.out.println("kangaroo one  "+kone_jump_count +"\n at location: "+i);
+					System.out.println("kangaroo one  "+kone_jump_count +"\n at location: "+i+"jjj"+j);
 					check =true;	
 				}
 			}
@@ -111,3 +97,8 @@ public class Kangaroo {
 //0 3 4 2
 
 //4523 8092 9419 8076
+
+
+//nput (stdin)
+
+// 42 3 94 2 YES
